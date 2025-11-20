@@ -12,6 +12,42 @@ public class Bank {
         this.accounts = accounts;
     }
 
+    public void showInfo() {
+        System.out.println("Banco " + name);
+        for (int i = 0; i < accounts.length; i++) {
+            System.out.print("Cuenta " + (i + 1) + ": ");
+            accounts[i].showInfo();
+        }
+    }
+
+    public void showAccount(String iban) {
+        for (Account account : accounts) {
+            if (account.getIban().equals(iban)) {
+                account.showInfo();
+            }
+
+        }
+    }
+
+    public Account findAccount(String iban) {
+        for (Account account : accounts) {
+            if (account.getIban().equals(iban)) {
+                return account;
+            }
+
+        }
+        return null;
+    }
+    public void showAccountNIf(String nif) {
+        for (Account account : accounts) {
+            if (account.getCustomer().getNif().equals(nif)) {
+                account.showInfo();
+            }
+        }
+    }
+
+
+
     public String getName() {
         return name;
     }
